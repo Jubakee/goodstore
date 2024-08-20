@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return [];
     }
 
+    // Clear localStorage for debugging
+    localStorage.clear("employeeData1");
 
-    localStorage.clear("employeeData1")
-  
     let employeeData = loadEmployeeData();
 
     if (employeeData.length === 0) {
@@ -69,9 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <h3>${employee.name}</h3>
                 <p>${employee.team}</p>
-
                 <p>${employee.title}</p>
-                
                 <p><span class="${employee.status === 'IN' ? 'status-in' : 'status-out'}">${employee.status}</span></p>
             `;
             card.addEventListener('click', () => {
@@ -81,16 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         popupFields[key].textContent = employee[key] || '';
                     }
                 }
-                popupOverlay.style.display = 'flex';
+                popupOverlay.style.display = 'flex'; // Show popup on card click
             });
             employeeGrid.appendChild(card);
         });
     
         populateFilterOptions(data);
     }
-    
-    //                <p>${employee.position}</p><p>${employee.company}</p> 
-
 
     function populateFilterOptions(data) {
         const teamFilter = document.getElementById('team-filter');
@@ -156,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     popupOverlay.addEventListener('click', (event) => {
         if (event.target === popupOverlay) {
-            popupOverlay.style.display = 'none';
+            popupOverlay.style.display = 'none'; // Hide popup on overlay click
         }
     });
 

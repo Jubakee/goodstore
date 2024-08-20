@@ -1,0 +1,237 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Centering content */
+    background-color: #f9f9f9;
+}
+
+footer {
+    text-align: center;
+}
+
+footer button {
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+footer button:hover {
+}
+
+
+/* Filter Section */
+#filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Filter Container */
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Filter Labels */
+#filter-section label {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    margin-right: -10px;
+}
+
+/* Filter Dropdowns */
+#filter-section select {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s ease;
+    font-family: 'Roboto', sans-serif;
+    margin-right: 10px;
+}
+
+#filter-section select:focus {
+    border-color: #007bff;
+}
+
+
+
+/* Employee Grid */
+#employee-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Employee Card */
+.employee-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.employee-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.employee-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.employee-card .status-in {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.employee-card .status-out {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Hover Effect for Employee Card */
+.employee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* Popup Overlay */
+#popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup Container */
+#popup-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 700px;
+    width: 80%;
+    height: 80%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Popup Content */
+#popup-content {
+    color: #333;
+}
+
+/* Section Header */
+#popup-content thead th[colspan="2"] {
+    font-size: 18px;
+    color: #444;
+    text-align: left;
+    font-weight: 700;
+}
+
+/* Table Styles */
+#popup-content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#popup-content th, #popup-content td {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #555;
+    text-align: left;
+}
+
+/* Table Headers */
+#popup-content th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Table Cells */
+#popup-content td {
+    background-color: #fafafa;
+    font-weight: 400;
+}
+
+
+
+/* Responsive Design for Filters */
+@media (max-width: 768px) {
+    #filter-section {
+        gap: 5px;
+    }
+
+    #filter-section label {
+        font-size: 13px;
+    }
+
+    #filter-section select {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    #employee-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller screens */
+    }
+}
+
+@media (max-width: 900px) {
+    #employee-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet screens */
+    }
+}
+

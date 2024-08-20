@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+    
+    <main>
+
+
+        <div id="filter-section">
+            <div class="filter-group">
+                <label for="company-filter">소속회사</label>
+                <select id="company-filter">
+                    <option value="">모두보기</option>
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+        
+            <div class="filter-group">
+                <label for="team-filter">팀</label>
+                <select id="team-filter">
+                    <option value="">모두보기</option>
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+        
+            <div class="filter-group">
+                <label for="title-filter">직책</label>
+                <select id="title-filter">
+                    <option value="">모두보기</option>
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+        </div>
+        
+    
+
+        <div id="employee-grid" class="employee-grid">
+            <!-- Employee cards will be added here -->
+        </div>
+    </main>
+    <footer>
+        <button id="logout">Logout</button>
+    </footer>
+
+    <!-- Popup Overlay -->
+    <div id="popup-overlay">
+        <!-- Popup Container -->
+        <div id="popup-container">
+            <!-- Close Button -->
+            <!-- <button id="close-popup">&times;</button> -->
+            <!-- Popup Content -->
+            <div id="popup-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Basic Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>이름</th>
+                            <td id="popup-name"></td>
+                        </tr>
+                        <tr>
+                            <th>근무팀</th>
+                            <td id="popup-team"></td>
+                        </tr>
+                        <tr>
+                            <th>직책</th>
+                            <td id="popup-position"></td>
+                        </tr>
+                        <tr>
+                            <th>한글이름</th>
+                            <td id="popup-name-korean"></td>
+                        </tr>
+                        <tr>
+                            <th>영문이름</th>
+                            <td id="popup-name-english"></td>
+                        </tr>
+                        <tr>
+                            <th>Kwown as</th>
+                            <td id="popup-known-as"></td>
+                        </tr>
+                        <tr>
+                            <th>IRD#</th>
+                            <td id="popup-ird"></td>
+                        </tr>
+                        <tr>
+                            <th>생년월일</th>
+                            <td id="popup-dob"></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Contact Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>주소</th>
+                            <td id="popup-address"></td>
+                        </tr>
+                        <tr>
+                            <th>Mobile</th>
+                            <td id="popup-mobile"></td>
+                        </tr>
+                        <tr>
+                            <th>E-mail (회사)</th>
+                            <td id="popup-email-work"></td>
+                        </tr>
+                        <tr>
+                            <th>E-mail (개인)</th>
+                            <td id="popup-email-personal"></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Work Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>입사일</th>
+                            <td id="popup-start-date"></td>
+                        </tr>
+                        <tr>
+                            <th>정식계약</th>
+                            <td id="popup-official-date"></td>
+                        </tr>
+                        <tr>
+                            <th>키위세이버</th>
+                            <td id="popup-kiwisaver"></td>
+                        </tr>
+                        <tr>
+                            <th>비자</th>
+                            <td id="popup-visa"></td>
+                        </tr>
+                        <tr>
+                            <th>비자만료일</th>
+                            <td id="popup-visa-expiry"></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Emergency Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>긴급연락망</th>
+                            <td id="popup-emergency"></td>
+                        </tr>
+                        <tr>
+                            <th>연락처</th>
+                            <td id="popup-emergency-contact"></td>
+                        </tr>
+                        <tr>
+                            <th>관계</th>
+                            <td id="popup-emergency-relation"></td>
+                        </tr>
+                        <tr>
+                            <th>소속회사</th>
+                            <td id="popup-business"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

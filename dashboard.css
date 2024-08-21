@@ -139,7 +139,7 @@ footer button {
 
 .employee-card-header .employee-name {
     margin: 0;
-    font-size: 18px; /* Larger font size for name */
+    font-size: 16px; /* Larger font size for name */
     font-weight: 600;
     display: inline-block;
 }

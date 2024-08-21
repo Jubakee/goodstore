@@ -20,7 +20,7 @@ header {
 main {
     flex: 1;
     padding: 2rem;
-    max-width: 1200px;
+
     margin: 0 auto; /* Centering content */
     background-color: #f9f9f9;
 }
@@ -35,8 +35,8 @@ footer button {
     cursor: pointer;
 }
 
-footer button:hover {
-}
+/* footer button:hover {
+} */
 
 
 /* Filter Section */
@@ -68,7 +68,7 @@ footer button:hover {
 
 /* Filter Dropdowns */
 #filter-section select {
-    padding: 15px;
+    padding: 5px;
     font-size: 14px;
     border: 1px solid #ddd;
     background-color: #fff;
@@ -83,25 +83,43 @@ footer button:hover {
     border-color: #007bff;
 }
 
+/* Reset Filters Button */
+#reset-filters {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+#reset-filters:hover {
+    background-color: #0056b3;
+}
+
+#reset-filters:focus {
+    outline: none;
+}
 
 
 /* Employee Grid */
 #employee-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-columns: repeat(6, 1fr); /* 4 columns */
     gap: 20px;
     padding: 20px;
     background-color: #f9f9f9;
 }
 
-/* Employee Card */
+/* General Card Styles */
 .employee-card {
     background-color: #ffffff;
     border-radius: 8px;
     width: 200px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #ddd;
+    padding: 10px;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
     align-items: center;
@@ -109,34 +127,70 @@ footer button:hover {
     text-align: center;
 }
 
-.employee-card h3 {
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    color: #333;
+/* Card Header Styles */
+.employee-card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
-.employee-card p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #666;
+.employee-card-header .employee-name {
+    margin: 0;
+    font-size: 18px; /* Larger font size for name */
+    font-weight: 600;
+    display: inline-block;
 }
 
-.employee-card .status-in {
-    color: #28a745;
+.employee-card-header .employee-team-name {
+    font-size: 12px; /* Smaller font size for team */
+    color: #555;
+    margin-left: 5px;
+}
+
+
+
+.employee-card-body {
+font-weight: bold;
+margin-bottom: 10px;
+font-size: 18px; /* Smaller font size for team */
+
+}
+
+.employee-card-body .status-in {
+    color: #4caf50; /* Green */
+}
+
+.employee-card-body .status-out {
+    color: #f44336; /* Red */
+}
+
+
+.employee-card-body .employee-team {
+    font-size: 12px;
+}
+
+.employee-card-body .employee-position {
+    font-size: 12px;
     font-weight: bold;
 }
 
-.employee-card .status-out {
-    color: #dc3545;
+/* Card Footer Styles */
+.employee-card-footer {
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid #f0f0f0;
+  
     font-weight: bold;
 }
 
 /* Hover Effect for Employee Card */
 .employee-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
-
 
 
 /* Popup Overlay */
@@ -238,3 +292,8 @@ footer button:hover {
     }
 }
 
+@media (max-width: 450px) {
+    #employee-grid {
+        grid-template-columns: repeat(1, 1fr); /* 2 columns for tablet screens */
+    }
+}

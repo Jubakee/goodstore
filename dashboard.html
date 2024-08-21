@@ -15,6 +15,7 @@
 
 
         <div id="filter-section">
+
             <div class="filter-group">
                 <label for="company-filter">소속</label>
                 <select id="company-filter">
@@ -22,7 +23,7 @@
                     <!-- Options will be populated dynamically -->
                 </select>
             </div>
-        
+            
             <div class="filter-group">
                 <label for="team-filter">팀</label>
                 <select id="team-filter">
@@ -38,6 +39,18 @@
                     <!-- Options will be populated dynamically -->
                 </select>
             </div>
+
+            <div class="filter-group">
+                <label for="status-filter">상태</label>
+                <select id="status-filter">
+                    <option value="">모두보기</option>
+                            <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <button id="reset-filters">초기화</button>
+            </div>
         </div>
         
     
@@ -46,8 +59,10 @@
             <!-- Employee cards will be added here -->
         </div>
     </main>
+
     <footer>
         <button id="logout">Logout</button>
+        <button id="admin-access-btn">Go to Admin Page</button>
     </footer>
 
     <!-- Popup Overlay -->

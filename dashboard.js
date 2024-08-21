@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Clear localStorage for debugging
-    localStorage.clear("employeeData1");
+    //localStorage.clear("employeeData1");
 
     let employeeData = loadEmployeeData();
 
@@ -65,15 +65,27 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('data-team', employee.team);
             card.setAttribute('data-position', employee.position);
             card.setAttribute('data-title', employee.title);
-            card.setAttribute('data-company', employee.company); // Add this line
+            card.setAttribute('data-company', employee.company);
+            card.setAttribute('data-status', employee.status);
+    
             card.innerHTML = `
-                <h3>${employee.name}</h3>
-                <p>${employee.team}</p>
-                <p>${employee.title}</p>
-                <p><span class="${employee.status === 'IN' ? 'status-in' : 'status-out'}">${employee.status}</span></p>
+                <div class="employee-card-header">
+                    <h3 class="employee-name">${employee.name}<span class="employee-team-name">/ ${employee.title}</span></h3>
+
+                </div>   
+
+                <div class="employee-card-divider"></div>
+                <div class="employee-card-body">
+                
+               
+                    <span class="employee-status ${employee.status === 'IN' ? 'status-in' : 'status-out'}">${employee.status}</span>
+
+
+                </div>
+   
             `;
             card.addEventListener('click', () => {
-                console.log('Employee Data:', employee); // Debugging line
+                console.log('Employee Data:', employee);
                 for (const key in popupFields) {
                     if (popupFields.hasOwnProperty(key) && popupFields[key]) {
                         popupFields[key].textContent = employee[key] || '';
@@ -86,29 +98,28 @@ document.addEventListener('DOMContentLoaded', () => {
     
         populateFilterOptions(data);
     }
+    
+    
 
     function populateFilterOptions(data) {
         const teamFilter = document.getElementById('team-filter');
         const companyFilter = document.getElementById('company-filter');
         const titleFilter = document.getElementById('title-filter');
+        const statusFilter = document.getElementById('status-filter');
 
         const teams = new Set();
         const companies = new Set();
         const titles = new Set();
+        const statuses = new Set();
 
         data.forEach(employee => {
             teams.add(employee.team);
             companies.add(employee.company);
             titles.add(employee.title);
+            statuses.add(employee.status);
         });
 
-        teams.forEach(team => {
-            const option = document.createElement('option');
-            option.value = team;
-            option.textContent = team;
-            teamFilter.appendChild(option);
-        });
-
+        teamFilter.innerHTML = '<option value="">모두보기</option>';
         companies.forEach(company => {
             const option = document.createElement('option');
             option.value = company;
@@ -122,22 +133,40 @@ document.addEventListener('DOMContentLoaded', () => {
             option.textContent = title;
             titleFilter.appendChild(option);
         });
+
+        statuses.forEach(status => {
+            const option = document.createElement('option');
+            option.value = status;
+            option.textContent = status;
+            statusFilter.appendChild(option);
+        });
+
+        teamFilter.innerHTML = '<option value="">모두보기</option>';
+        teams.forEach(team => {
+            const option = document.createElement('option');
+            option.value = team;
+            option.textContent = team;
+            teamFilter.appendChild(option);
+        });
     }
 
     function filterRows() {
         const selectedTeam = document.getElementById('team-filter').value;
         const selectedCompany = document.getElementById('company-filter').value;
         const selectedTitle = document.getElementById('title-filter').value;
+        const selectedStatus = document.getElementById('status-filter').value;
         const rows = document.querySelectorAll('#employee-grid .employee-card');
 
         rows.forEach(row => {
             const team = row.getAttribute('data-team');
             const company = row.getAttribute('data-company');
             const title = row.getAttribute('data-title');
+            const status = row.getAttribute('data-status');
 
             if ((selectedTeam === '' || team === selectedTeam) &&
                 (selectedCompany === '' || company === selectedCompany) &&
-                (selectedTitle === '' || title === selectedTitle)) {
+                (selectedTitle === '' || title === selectedTitle) &&
+                (selectedStatus === '' || status === selectedStatus)) {
                 row.style.display = '';
             } else {
                 row.style.display = 'none';
@@ -145,9 +174,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function resetFilters() {
+        document.getElementById('team-filter').value = '';
+        document.getElementById('company-filter').value = '';
+        document.getElementById('title-filter').value = '';
+        document.getElementById('status-filter').value = '';
+        filterRows(); // Re-render the list with all employees
+    }
+
     document.getElementById('team-filter').addEventListener('change', filterRows);
     document.getElementById('company-filter').addEventListener('change', filterRows);
     document.getElementById('title-filter').addEventListener('change', filterRows);
+    document.getElementById('status-filter').addEventListener('change', filterRows);
+    document.getElementById('reset-filters').addEventListener('click', resetFilters);
 
     popupOverlay.addEventListener('click', (event) => {
         if (event.target === popupOverlay) {
@@ -155,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.getElementById('admin-access-btn').addEventListener('click', () => {
+        document.getElementById('admin-access-btn').addEventListener('click', () => {
         window.location.href = 'admin.html';
     });
 });

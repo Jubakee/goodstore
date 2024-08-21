@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Page</h1>
+    </header>
+    <main>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="검색">
+        </div>
+        <div id="employee-list" class="employee-list">
+            <!-- Employee list with toggles will be added here -->
+        </div>
+    </main>
+
+    <footer>
+        <button class="return-home" onclick="window.location.href='dashboard.html'">Return to Home</button>
+        <button id="logout">Logout</button>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>
